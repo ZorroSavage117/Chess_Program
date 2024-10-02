@@ -16,7 +16,7 @@
 
 class TestMove;
 class TestBoard;
-//enum MoveType { MOVE, ENPASSANT, CASTLE_KING, CASTLE_QUEEN, MOVE_ERROR };
+enum MoveType { MOVE, ENPASSANT, CASTLE_KING, CASTLE_QUEEN, MOVE_ERROR };
 
 /***************************************************
  * MOVE
@@ -25,7 +25,7 @@ class TestBoard;
 class Move
 {
 public:
-   enum MoveType { MOVE, ENPASSANT, CASTLE_KING, CASTLE_QUEEN, MOVE_ERROR };
+   /*enum MoveType { MOVE, ENPASSANT, CASTLE_KING, CASTLE_QUEEN, MOVE_ERROR };*/
 
    friend TestMove;
    friend TestBoard;
@@ -33,6 +33,7 @@ public:
    // constructors
    Move();
    Move(string smith, bool white);
+   Move(Position s, Position d, MoveType m, PieceType cap, PieceType pro, bool white);
 
    // methods
    Position getSource();
@@ -48,7 +49,7 @@ public:
    bool getIsWhite();
    void setIsWhite(bool w);
    string getText();
-   void setText(string t);
+   void setText(string smith);
 
 
 private:

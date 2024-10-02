@@ -23,7 +23,7 @@ public:
       // Ticket 4: Move Core
       constructor_default();
       letterFromPieceType_space();
-      /*letterFromPieceType_pawn();
+      letterFromPieceType_pawn();
       letterFromPieceType_bishop();
       letterFromPieceType_knight();
       letterFromPieceType_rook();
@@ -35,14 +35,14 @@ public:
       pieceTypeFromLetter_rook();
       pieceTypeFromLetter_king();
       pieceTypeFromLetter_queen();
-      equal_not();
-      equal_equals();
-      lessthan_lessthan();
-      lessthan_equals();
-      lessthan_greaterthan();*/
+      //equal_not();
+      //equal_equals();
+      //lessthan_lessthan();
+      //lessthan_equals();
+      //lessthan_greaterthan();
 
       // Ticket 5: Move Text
-      /*read_simple();
+      read_simple();
       read_capture();
       read_enpassant();
       read_castleKing();
@@ -54,10 +54,10 @@ public:
       assign_castleKing();
       assign_castleQueen();
       getText_simple();
-      getText_capture();
-      getText_enpassant();
-      getText_castleKing();
-      getText_castleQueen();*/
+      //getText_capture();
+      //getText_enpassant();
+      //getText_castleKing();
+      //getText_castleQueen();
 
       report("Move");
    }
