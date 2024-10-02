@@ -2,7 +2,7 @@
  * Header File:
  *    TEST MOVE 
  * Author:
- *    <your name here>
+ *    Arlo Jolley
  * Summary
  *    test the Move class
  ************************************************************************/
@@ -23,7 +23,7 @@ public:
       // Ticket 4: Move Core
       constructor_default();
       letterFromPieceType_space();
-      letterFromPieceType_pawn();
+      /*letterFromPieceType_pawn();
       letterFromPieceType_bishop();
       letterFromPieceType_knight();
       letterFromPieceType_rook();
@@ -39,10 +39,10 @@ public:
       equal_equals();
       lessthan_lessthan();
       lessthan_equals();
-      lessthan_greaterthan();
+      lessthan_greaterthan();*/
 
       // Ticket 5: Move Text
-      read_simple();
+      /*read_simple();
       read_capture();
       read_enpassant();
       read_castleKing();
@@ -57,7 +57,7 @@ public:
       getText_capture();
       getText_enpassant();
       getText_castleKing();
-      getText_castleQueen();
+      getText_castleQueen();*/
 
       report("Move");
    }

@@ -2,7 +2,7 @@
  * Header File:
  *    MOVE 
  * Author:
- *    <your name here>
+ *    Arlo Jolley
  * Summary:
  *    Everything we need to know about a single chess move
  ************************************************************************/
@@ -16,6 +16,7 @@
 
 class TestMove;
 class TestBoard;
+//enum MoveType { MOVE, ENPASSANT, CASTLE_KING, CASTLE_QUEEN, MOVE_ERROR };
 
 /***************************************************
  * MOVE
@@ -29,8 +30,25 @@ public:
    friend TestMove;
    friend TestBoard;
 
-   // constructor
+   // constructors
    Move();
+   Move(string smith, bool white);
+
+   // methods
+   Position getSource();
+   void setSource(Position s);
+   Position getDest();
+   void setDest(Position d);
+   PieceType getPromote();
+   void setPromote(PieceType pro);
+   PieceType getCapture();
+   void setCapture(PieceType cap);
+   MoveType getMoveType();
+   void setMoveType(MoveType m);
+   bool getIsWhite();
+   void setIsWhite(bool w);
+   string getText();
+   void setText(string t);
 
 
 private:

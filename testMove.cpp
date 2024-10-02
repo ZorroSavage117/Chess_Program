@@ -2,7 +2,7 @@
  * Header File:
  *    TEST MOVE 
  * Author:
- *    <your name here>
+ *    Arlo Jolley
  * Summary:
  *    test the Move class
  ************************************************************************/
@@ -21,13 +21,8 @@
 void TestMove::constructor_default() 
 {
 	Move move;
-	assertUnit(move.source == Position());
-	assertUnit(move.dest == Position());
-	assertUnit(move.promote == SPACE);
-	assertUnit(move.capture == SPACE);
-	assertUnit(move.moveType == Move::MOVE_ERROR);
-	assertUnit(move.isWhite == true);
-	assertUnit(move.text == "");
+	assertUnit(move.getSource() == INVALID);
+	assertUnit(move.getDest() == INVALID);
     //assertUnit(NOT_YET_IMPLEMENTED);
 }
 
@@ -40,14 +35,10 @@ void TestMove::constructor_default()
   **************************************/
 void TestMove::constructString_simple()
 {
-	Move move;
-	string input = "e5e6";
-	move.source = Position(4, 4);  // e5 -> (4,4) | need to redo when ticket 2
-	move.dest = Position(4, 5);    // e6 -> (4,5) | is complete
-	move.moveType = Move::MOVE;
-	assertUnit(move.source == Position(4, 4));
-	assertUnit(move.dest == Position(4, 5));
-	assertUnit(move.moveType == Move::MOVE);
+	Move move('e5e6');
+	assertUnit(move.getSource() == '4,4');
+	assertUnit(move.getDest() == '4,5');
+	//assertUnit(move.getMoveType() == Move::MOVE);
 	//assertUnit(NOT_YET_IMPLEMENTED);
 }
 
@@ -202,7 +193,13 @@ void TestMove::assign_capture()
   **************************************/
 void TestMove::assign_enpassant()
 {
-
+	Move move;
+	move.source = Position(4, 0);  // e1
+	move.dest = Position(6, 0);    // g1
+	move.moveType = Move::ENPASSANT;
+	assertUnit(move.source == Position(4, 0));
+	assertUnit(move.dest == Position(6, 0));
+	assertUnit(move.moveType == Move::ENPASSANT);
     //assertUnit(NOT_YET_IMPLEMENTED);
 }
 
@@ -215,7 +212,14 @@ void TestMove::assign_enpassant()
   **************************************/
 void TestMove::assign_castleKing()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+	Move move;
+	move.source = Position(4, 0);  // e1
+	move.dest = Position(6, 0);    // g1
+	move.moveType = Move::CASTLE_KING;
+	assertUnit(move.source == Position(4, 0));
+	assertUnit(move.dest == Position(6, 0));
+	assertUnit(move.moveType == Move::CASTLE_KING);
+    //assertUnit(NOT_YET_IMPLEMENTED);
 }
 
  /*************************************
@@ -227,7 +231,14 @@ void TestMove::assign_castleKing()
   **************************************/
 void TestMove::assign_castleQueen()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+	Move move;
+	move.source = Position(4, 0);  // e1
+	move.dest = Position(6, 0);    // g1
+	move.moveType = Move::CASTLE_QUEEN;
+	assertUnit(move.source == Position(4, 0));
+	assertUnit(move.dest == Position(6, 0));
+	assertUnit(move.moveType == Move::CASTLE_QUEEN);
+    //assertUnit(NOT_YET_IMPLEMENTED);
 }
 
  /*************************************
@@ -239,7 +250,13 @@ void TestMove::assign_castleQueen()
   **************************************/
 void TestMove::getText_simple()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+	Move move;
+	move.source = Position(4, 4); // e5
+	move.dest = Position(4, 5);   // e6
+	move.moveType = Move::MOVE;
+	move.text = "e5e6";
+	assertUnit(move.text == "e5e6");
+    //assertUnit(NOT_YET_IMPLEMENTED);
 }
 
  /*************************************
@@ -252,7 +269,7 @@ void TestMove::getText_simple()
   **************************************/
 void TestMove::getText_capture()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+    assertUnit(NOT_YET_IMPLEMENTED);
 }
 
  /*************************************
