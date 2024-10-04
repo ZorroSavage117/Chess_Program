@@ -21,13 +21,21 @@ Space space;
 * BOARD : GET
 *         Get a piece from a given position.
 ***********************************************/
-const Piece& Board::operator [] (const Position& pos) const
-{
-   return space;
+//const Piece& Board::operator [] (const Position& pos) const
+//{
+//   return space;
+//}
+//Piece& Board::operator [] (const Position& pos)
+//{
+//   return space;
+//}
+Piece& Board::operator[](const Position& pos) {
+	assert(pos.isValid());  // Ensure the position is valid
+	return *board[pos.getCol()][pos.getRow()];  // Return reference to the Piece at the specified position
 }
-Piece& Board::operator [] (const Position& pos)
-{
-   return space;
+const Piece& Board::operator[](const Position& pos) const {
+	assert(pos.isValid());  // Ensure the position is valid
+	return *board[pos.getCol()][pos.getRow()];  // Return const reference to the Piece at the specified position
 }
 
 
