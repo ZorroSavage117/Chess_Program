@@ -31,7 +31,7 @@ Move::Move()
 
 Move::Move(string smith, bool white)
 {
-	source = smith.substr(0,2);
+	source = smith.substr(0, 2);
 	dest = smith.substr(2,2);
 	if (smith.length() > 4)
 	{
@@ -175,7 +175,6 @@ Position Move::getSource()
 void Move::setSource(Position s)
 {
 	source = s;
-	//text += s;
 }
 
 Position Move::getDest()
@@ -482,7 +481,20 @@ PieceType Move::pieceTypeFromLetter(char letter) const
 
 bool Move::equal(string smith1, string smith2) // compares the numbers of location known as start and dest
 {
-	string sorc1 = smith1.substr(0, 2);
+	Move smithOne(smith1);
+	Move smithTwo(smith2);
+
+	Position sor1;
+	Position sor2;
+	Position des1;
+	Position des2;
+
+	sor1 = smithOne.getSource();
+	des1 = smithOne.getDest();
+	sor2 = smithTwo.getSource();
+	des2 = smithTwo.getDest();
+
+	/*string sorc1 = smith1.substr(0, 2);
 	string dest1 = smith1.substr(2, 2);
 	string sorc2 = smith2.substr(0, 2);
 	string dest2 = smith2.substr(2, 2);
@@ -490,7 +502,7 @@ bool Move::equal(string smith1, string smith2) // compares the numbers of locati
 	Position sor1(sorc1);
 	Position des1(dest1);
 	Position sor2(sorc2);
-	Position des2(dest2);
+	Position des2(dest2);*/
 
 	int sor1c = sor1.getCol();
 	int sor1r = sor1.getRow();
