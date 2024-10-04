@@ -90,7 +90,7 @@ public:
    // Text:    The Position class can work with textual coordinates,
    //          such as "d4"
 
-   Position(const char* s) : colRow(0x99) {  }
+   Position(const char* s);
    const Position& operator =  (const char* rhs) { return *this; }
    const Position& operator =  (const string& rhs) { return *this; }
 

@@ -195,9 +195,12 @@ void TestMove::assign_castleQueen()
   **************************************/
 void TestMove::getText_simple()
 {
-	Move move('4,4', '4,5', MOVE, SPACE, SPACE, true);
-    //assertUnit(move.getText() == "e5e6");
-	assertUnit(NOT_YET_IMPLEMENTED);
+	//Move move('4,4', '4,5', MOVE, SPACE, SPACE, true);
+	Move move;
+	Position source(4, 4);
+	Position dest(4, 5);
+    assertUnit(move.getText(source, dest, MOVE) == "e5e6");
+	//assertUnit(NOT_YET_IMPLEMENTED);
 }
 
  /*************************************
@@ -210,9 +213,12 @@ void TestMove::getText_simple()
   **************************************/
 void TestMove::getText_capture()
 {
-	Move move('4,4', '4,5', MOVE, ROOK, SPACE, true);
-	//assertUnit(move.getText() == "e5e6r");
-    assertUnit(NOT_YET_IMPLEMENTED);
+	//Move move('4,4', '4,5', MOVE, ROOK, SPACE, true);
+	Move move;
+	Position source(4, 4);
+	Position dest(4, 5);
+	assertUnit(move.getText(source, dest, MOVE, ROOK) == "e5e6r");
+    //assertUnit(NOT_YET_IMPLEMENTED);
 }
 
  /*************************************
@@ -225,9 +231,12 @@ void TestMove::getText_capture()
   **************************************/
 void TestMove::getText_enpassant()
 {
-	Move move('4,4', '5,5', ENPASSANT, PAWN, SPACE, true);
-	//assertUnit(move.getText() == "e5f6E");
-    assertUnit(NOT_YET_IMPLEMENTED);
+	//Move move('4,4', '5,5', ENPASSANT, PAWN, SPACE, true);
+	Move move;
+	Position source(4, 4);
+	Position dest(5, 5);
+	assertUnit(move.getText(source, dest, ENPASSANT, PAWN) == "e5f6E");
+    //assertUnit(NOT_YET_IMPLEMENTED);
 }
 
  /*************************************
@@ -239,9 +248,12 @@ void TestMove::getText_enpassant()
   **************************************/
 void TestMove::getText_castleKing()
 {
-	Move move('4,0', '6,0', CASTLE_KING, SPACE, SPACE, true);
-	//assertUnit(move.getText() == "e1g1c");
-    assertUnit(NOT_YET_IMPLEMENTED);
+	//Move move('4,0', '6,0', CASTLE_KING, SPACE, SPACE, true);
+	Move move;
+	Position source(4, 0);
+	Position dest(6, 0);
+	assertUnit(move.getText(source, dest, CASTLE_KING) == "e1g1c");
+    //assertUnit(NOT_YET_IMPLEMENTED);
 }
 
  /*************************************
@@ -253,9 +265,12 @@ void TestMove::getText_castleKing()
   **************************************/
 void TestMove::getText_castleQueen()
 {
-	Move move('4,0', '2,0', CASTLE_QUEEN, SPACE, SPACE, true);
-	//assertUnit(move.getText() == "e1c1C");
-   assertUnit(NOT_YET_IMPLEMENTED);
+	//Move move('4,0', '2,0', CASTLE_QUEEN, SPACE, SPACE, true);
+	Move move;
+	Position source(4, 0);
+	Position dest(2, 0);
+	assertUnit(move.getText(source, dest, CASTLE_QUEEN) == "e1c1C");
+   //assertUnit(NOT_YET_IMPLEMENTED);
 }
 
  /*************************************
@@ -422,27 +437,33 @@ void TestMove::pieceTypeFromLetter_king()
   **************************************/
 void TestMove::equal_not()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+	Move move;
+	assertUnit(move.equal("b2b4", "b2b5") == false);
+   //assertUnit(NOT_YET_IMPLEMENTED);
 }
 
  /*************************************
   * EQUAL - EQUALS
   * Input : b2b4 == b2b4
-  * Output: false
+  * Output: ture
   **************************************/
 void TestMove::equal_equals()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+	Move move;
+	assertUnit(move.equal("b2b4", "b2b4") == true);
+   //assertUnit(NOT_YET_IMPLEMENTED);
 }
 
  /*************************************
   * LESS THAN - LESS THAN
   * Input : b2b2 < b2b4
-  * Output: false
+  * Output: true
   **************************************/
 void TestMove::lessthan_lessthan()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+	Move move;
+	assertUnit(move.less_than("b2b2", "b2b4") == true);
+   //assertUnit(NOT_YET_IMPLEMENTED);
 }
 
  /*************************************
@@ -452,7 +473,9 @@ void TestMove::lessthan_lessthan()
   **************************************/
 void TestMove::lessthan_equals()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+	Move move;
+	assertUnit(move.less_than("b2b4", "b2b4") == false);
+   //assertUnit(NOT_YET_IMPLEMENTED);
 }
 
  /*************************************
@@ -462,5 +485,7 @@ void TestMove::lessthan_equals()
   **************************************/
 void TestMove::lessthan_greaterthan()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+	Move move;
+	assertUnit(move.less_than("b2b2", "b2b2") == false);
+   //assertUnit(NOT_YET_IMPLEMENTED);
 }

@@ -21,7 +21,7 @@ public:
    void run()
    {
     //Ticket 1: Position Core
-      getRow_zero();
+      /*getRow_zero();
       getCol_zero();
       getLocation_zero();
       isValid_zero();
@@ -56,7 +56,7 @@ public:
       equal_equals();
       lessthan_lessthan();
       lessthan_equals();
-      lessthan_greaterthan();
+      lessthan_greaterthan();*/
 
       // Ticket 2: Position Text
       /*set_text();

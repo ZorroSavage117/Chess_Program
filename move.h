@@ -32,8 +32,8 @@ public:
 
    // constructors
    Move();
-   Move(string smith, bool white);
-   Move(Position s, Position d, MoveType m, PieceType cap, PieceType pro, bool white);
+   Move(string smith, bool white = true);
+   //Move(Position s, Position d, MoveType m, PieceType cap, PieceType pro, bool white);
 
    // methods
    Position getSource();
@@ -49,12 +49,15 @@ public:
    bool getIsWhite();
    void setIsWhite(bool w);
    string getText();
+   string getText(Position sour, Position des, MoveType type, PieceType cap = SPACE, PieceType pro = SPACE);
    void setText(string smith);
-
+   bool equal(string smith1, string smith2);
+   bool less_than(string smith1, string smith2);
 
 private:
 	char letterFromPieceType(PieceType pt)     const;
 	PieceType pieceTypeFromLetter(char letter) const;
+	char conv(int col);
 
 
 
