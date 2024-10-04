@@ -81,8 +81,8 @@ public:
       if (c >= 0 && c < 8 && r >= 0 && r < 8) { colRow = (c << 4) | r; }
       else colRow = 0x99;
    }
-   virtual int getCol() const { return (colRow & 0xF0) >> 4; }
-   virtual int getRow() const { return colRow & 0x0F; }
+   virtual int getCol() const;
+   virtual int getRow() const;
    void setRow(int r) { colRow = (0 << 4) | r; }
    void setCol(int c) { colRow = (c << 4) | 0; }
    void set(int c, int r) { if (c >= 0 && c < 8 && r >= 0 && r < 8) { colRow = (c << 4) | r; } else colRow = 0x99; }
@@ -90,30 +90,30 @@ public:
    // Text:    The Position class can work with textual coordinates,
    //          such as "d4"
 
-   Position(const char* s) : colRow(0x99) {  }
-   const Position& operator =  (const char* rhs) { return *this; }
-   const Position& operator =  (const string& rhs) { return *this; }
+   Position(const char* s);
+   const Position& operator =  (const char* rhs);
+   const Position& operator =  (const string& rhs);
 
 
    // Pixels:    The Position class can work with screen coordinates,
    //            a.k.a. Pixels, these are X and Y coordinates. Note that
    //            we need to scale them according to the size of the board.
-   int getX()   const { return 99; }
-   int getY()   const { return 99; }
-   void setXY(double x, double y) { }
-   double getSquareWidth()  const { return 99; }
-   double getSquareHeight() const { return 99; }
-   void setSquareWidth(double width) {  }
-   void setSquareHeight(double height) {  }
+   int getX()   const { return getCol() * getSquareWidth(); }
+   int getY()   const { return getRow() * getSquareHeight(); }
+   void setXY(double x, double y);
+   double getSquareWidth()  const { return squareWidth; }
+   double getSquareHeight() const { return squareHeight; }
+   void setSquareWidth(double width = 0) { this->squareWidth = width; }
+   void setSquareHeight(double height = 0) { this->squareHeight = height; }
 
    // Delta:    The Position class can work with deltas, which are
    //           offsets from a given location. This helps pieces move
    //           on the chess board.
-   Position(const Position& rhs, const Delta& delta) : colRow(-1) {  }
-   void adjustRow(int dRow) { }
-   void adjustCol(int dCol) { }
-   const Position& operator += (const Delta& rhs) { return *this; }
-   Position operator + (const Delta& rhs) const { return *this; }
+   Position(const Position& rhs, const Delta& delta);
+   void adjustRow(int dRow);
+   void adjustCol(int dCol);
+   const Position& operator += (const Delta& rhs);
+   Position operator + (const Delta& rhs);
 
 private:
    void set(uint8_t colRowNew) { }
