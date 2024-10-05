@@ -30,12 +30,18 @@ Space space;
 //   return space;
 //}
 Piece& Board::operator[](const Position& pos) {
-	assert(pos.isValid());  // Ensure the position is valid
-	return *board[pos.getCol()][pos.getRow()];  // Return reference to the Piece at the specified position
+	if (pos.isValid()) {
+		assert(0 <= pos.getCol() && pos.getCol() < 8);
+		assert(0 <= pos.getRow() && pos.getRow() < 8);
+		return *board[pos.getCol()][pos.getRow()];  // Return reference to the Piece at the specified position
+	}
 }
 const Piece& Board::operator[](const Position& pos) const {
-	assert(pos.isValid());  // Ensure the position is valid
-	return *board[pos.getCol()][pos.getRow()];  // Return const reference to the Piece at the specified position
+	if (pos.isValid()) {
+		assert(0 <= pos.getCol() && pos.getCol() < 8);
+		assert(0 <= pos.getRow() && pos.getRow() < 8);
+		return *board[pos.getCol()][pos.getRow()];  // Return const reference to the Piece at the specified position
+	}
 }
 
 

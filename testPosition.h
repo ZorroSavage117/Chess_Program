@@ -20,7 +20,7 @@ class PositionTest : public UnitTest
 public:
    void run()
    {
-      // Ticket 1: Position Core
+    //Ticket 1: Position Core
       getRow_zero();
       getCol_zero();
       getLocation_zero();
