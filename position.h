@@ -43,12 +43,13 @@ class PositionTest;
 class Position
 {
    friend class PositionTest;
+   
 public:
 
    // Position :    The Position class can work with other positions,
    //               Allowing for comparisions, copying, etc.
    Position(const Position& rhs) { this->colRow = rhs.colRow; }
-   Position() : colRow(0x99) { colRow = 0x99; }
+   Position() : colRow(0x99) { colRow = 0x00; }
    bool isInvalid() const { return colRow & 0x88; }
    bool isValid()   const { return !(colRow & 0x88); }
    void setValid() {              }
@@ -93,6 +94,7 @@ public:
    Position(const char* s);
    const Position& operator =  (const char* rhs);
    const Position& operator =  (const string& rhs);
+
 
 
    // Pixels:    The Position class can work with screen coordinates,
