@@ -530,7 +530,44 @@ bool Move::equal(string smith1, string smith2) // compares the numbers of locati
 
 bool Move::less_than(string smith1, string smith2)
 {
-	if (smith1 < smith2)
+	Move smithOne(smith1);
+	Move smithTwo(smith2);
+
+	Position sor1;
+	Position sor2;
+	Position des1;
+	Position des2;
+
+	sor1 = smithOne.getSource();
+	des1 = smithOne.getDest();
+	sor2 = smithTwo.getSource();
+	des2 = smithTwo.getDest();
+
+	/*string sorc1 = smith1.substr(0, 2);
+	string dest1 = smith1.substr(2, 2);
+	string sorc2 = smith2.substr(0, 2);
+	string dest2 = smith2.substr(2, 2);
+
+	Position sor1(sorc1);
+	Position des1(dest1);
+	Position sor2(sorc2);
+	Position des2(dest2);*/
+
+	int sor1c = sor1.getCol();
+	int sor1r = sor1.getRow();
+	int sor2c = sor2.getCol();
+	int sor2r = sor2.getRow();
+	int des1c = des1.getCol();
+	int des1r = des1.getRow();
+	int des2c = des2.getCol();
+	int des2r = des2.getRow();
+
+	int sor1p = (sor1r * 8) + sor1c;
+	int sor2p = (sor2r * 8) + sor2c;
+	int des1p = (des1r * 8) + des1c;
+	int des2p = (des2r * 8) + des2c;
+
+	if (sor1p == sor2p && des1p < des2p)
 	{
 		return true;
 	}

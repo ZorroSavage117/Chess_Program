@@ -35,12 +35,12 @@ public:
       whiteTurn_middleBlack();
 
       // Ticket 7: Board Fetch
-      //fetch_a1();
-      //fetch_h8();
-      //fetch_a8();
-      //set_a1();
-      //set_h8();
-      //set_a8();
+      fetch_a1();
+      fetch_h8();
+      fetch_a8();
+      set_a1();
+      set_h8();
+      set_a8();
 
       report("Board");
    }
