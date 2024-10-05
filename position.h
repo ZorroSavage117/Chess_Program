@@ -95,6 +95,7 @@ public:
    const Position& operator =  (const string& rhs);
 
 
+
    // Pixels:    The Position class can work with screen coordinates,
    //            a.k.a. Pixels, these are X and Y coordinates. Note that
    //            we need to scale them according to the size of the board.

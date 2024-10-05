@@ -2,7 +2,7 @@
  * Header File:
  *    MOVE 
  * Author:
- *    <your name here>
+ *    Arlo Jolley
  * Summary:
  *    Everything we need to know about a single chess move
  ************************************************************************/
@@ -16,6 +16,7 @@
 
 class TestMove;
 class TestBoard;
+enum MoveType { MOVE, ENPASSANT, CASTLE_KING, CASTLE_QUEEN, MOVE_ERROR };
 
 /***************************************************
  * MOVE
@@ -24,18 +25,39 @@ class TestBoard;
 class Move
 {
 public:
-   enum MoveType { MOVE, ENPASSANT, CASTLE_KING, CASTLE_QUEEN, MOVE_ERROR };
+   /*enum MoveType { MOVE, ENPASSANT, CASTLE_KING, CASTLE_QUEEN, MOVE_ERROR };*/
 
    friend TestMove;
    friend TestBoard;
 
-   // constructor
+   // constructors
    Move();
+   Move(string smith, bool white = true);
+   //Move(Position s, Position d, MoveType m, PieceType cap, PieceType pro, bool white);
 
+   // methods
+   Position getSource();
+   void setSource(Position s);
+   Position getDest();
+   void setDest(Position d);
+   PieceType getPromote();
+   void setPromote(PieceType pro);
+   PieceType getCapture();
+   void setCapture(PieceType cap);
+   MoveType getMoveType();
+   void setMoveType(MoveType m);
+   bool getIsWhite();
+   void setIsWhite(bool w);
+   string getText();
+   string getText(Position sour, Position des, MoveType type, PieceType cap = SPACE, PieceType pro = SPACE);
+   void setText(string smith);
+   bool equal(string smith1, string smith2);
+   bool less_than(string smith1, string smith2);
 
 private:
 	char letterFromPieceType(PieceType pt)     const;
 	PieceType pieceTypeFromLetter(char letter) const;
+	char conv(int col);
 
 
 
