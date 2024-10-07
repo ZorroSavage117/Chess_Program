@@ -8,14 +8,16 @@
  ************************************************************************/
 
 #include "board.h"
+#include "uiDraw.h"
 #include "position.h"
 #include "piece.h"
+#include "pieceSpace.h"
+#include "pieceKnight.h"
 #include <cassert>
 using namespace std;
 
-
-// we really REALLY need to delete this.
-Space space;
+// we really REALLY need to delete this. // oringally here as comment
+// Space space;
 
 /***********************************************
 * BOARD : GET

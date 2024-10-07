@@ -9,6 +9,7 @@
 
 #pragma once
 
+#include <stack>
 #include <cassert>
 #include "move.h"   // Because we return a set of Move
 
@@ -41,6 +42,10 @@ class Board
 
 public:
 
+    // create and destroy the board
+    Board(ogstream* pgout = nullptr, bool noreset = false);
+    virtual ~Board() {  }
+
    // getters
    virtual int  getCurrentMove() const { return numMoves;}
    virtual bool whiteTurn()      const {if (numMoves % 2 == 1) {return false;}else {return true;}}
@@ -48,12 +53,18 @@ public:
    virtual const Piece& operator [] (const Position& pos) const;
 
    // setters
-   virtual void move(const Move & move) { }
+   virtual void free();
+   virtual void reset(bool fFree = true);
+   virtual void move(const Move& move); // was  {  }
    virtual Piece& operator [] (const Position& pos);
 
 protected:
+    void  assertBoard();
+
    int numMoves;
    Piece * board[8][8];    // the board of chess pieces
+
+   ogstream* pgout;
 };
 
 
@@ -65,6 +76,7 @@ class BoardDummy : public Board
 {
    friend TestBoard; 
 public:
+    //BoardDummy() : Board(nullptr, true /*noreset*/) {                }
    BoardDummy() {// Optionally initialize base class attributes
        numMoves = 0;
 
@@ -81,9 +93,12 @@ public:
 
    void display(const Position& posHover,
                 const Position& posSelect) const          { assert(false); }
+   void reset(bool fFree = true)                          { assert(false); }
    void move       (const Move& move)                     { assert(false); }
+   void undo()                                            { assert(false); }
    int  getCurrentMove() const                            { assert(false); return 0; }
    bool whiteTurn()      const                            { assert(false); return false; }
+   void free()                                            { assert(false); }
    Piece& operator [] (const Position& pos)
    { 
       assert(false); 
@@ -107,6 +122,7 @@ class BoardEmpty : public BoardDummy
    friend TestBoard;
 public:
    Piece * pSpace;
+   int moveNumber;
 
    BoardEmpty();
    ~BoardEmpty();
@@ -118,5 +134,6 @@ public:
       else
          return *pSpace;
    }
+   int  getCurrentMove() const { return moveNumber; }
 };
 

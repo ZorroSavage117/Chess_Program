@@ -91,7 +91,7 @@ public:
    // Text:    The Position class can work with textual coordinates,
    //          such as "d4"
 
-   Position(const char* s);
+   Position(const char* s);   //: colRow(0x99)
    const Position& operator =  (const char* rhs);
    const Position& operator =  (const string& rhs);
 
@@ -111,7 +111,7 @@ public:
    // Delta:    The Position class can work with deltas, which are
    //           offsets from a given location. This helps pieces move
    //           on the chess board.
-   Position(const Position& rhs, const Delta& delta);
+   Position(const Position& rhs, const Delta& delta);  //: colRow(-1)
    void adjustRow(int dRow);
    void adjustCol(int dCol);
    const Position& operator += (const Delta& rhs);

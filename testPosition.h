@@ -70,6 +70,9 @@ public:
       adjust_offLeft();
       adjust_offBottom();
       adjust_invalid();
+
+      // Week 4 Ticket ?
+      reset();
       
       report("Position");
    }
@@ -126,4 +129,6 @@ private:
    void lessthan_lessthan();
    void lessthan_equals();
    void lessthan_greaterthan();
+
+   void reset();
 };
