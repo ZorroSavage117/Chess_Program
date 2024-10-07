@@ -41,7 +41,7 @@ void Board::reset(bool fFree)
 }
 
 // we really REALLY need to delete this. 
-Space space;
+//Space space;
 
 /***********************************************
 * BOARD : GET

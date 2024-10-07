@@ -49,7 +49,7 @@ public:
    // getters
    virtual int  getCurrentMove() const { return numMoves;}
    virtual bool whiteTurn()      const {if (numMoves % 2 == 1) {return false;}else {return true;}}
-   virtual void display(const Position& posHover, const Position& posSelect) const {}
+   virtual void display(const Position& posHover, const Position& posSelect) const; // was {}
    virtual const Piece& operator [] (const Position& pos) const;
 
    // setters

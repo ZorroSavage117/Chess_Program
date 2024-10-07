@@ -22,7 +22,7 @@ using std::set;
 // as a parameter, and the Board has an array of Pieces
 class ogstream;
 class Board;
-class MoveType;
+//class MoveType;
 
 class TestPiece;
 class TestKing;

@@ -16,7 +16,7 @@
 
 class TestMove;
 class TestBoard;
-enum MoveType { MOVE, ENPASSANT, CASTLE_KING, CASTLE_QUEEN, MOVE_ERROR };
+//enum MoveType { MOVE, ENPASSANT, CASTLE_KING, CASTLE_QUEEN, MOVE_ERROR };
 
 /***************************************************
  * MOVE
@@ -25,7 +25,7 @@ enum MoveType { MOVE, ENPASSANT, CASTLE_KING, CASTLE_QUEEN, MOVE_ERROR };
 class Move
 {
 public:
-   /*enum MoveType { MOVE, ENPASSANT, CASTLE_KING, CASTLE_QUEEN, MOVE_ERROR };*/
+   enum MoveType { MOVE, ENPASSANT, CASTLE_KING, CASTLE_QUEEN, MOVE_ERROR };
 
    friend TestMove;
    friend TestBoard;
@@ -33,7 +33,7 @@ public:
    // constructors
    Move();
    Move(string smith, bool white = true);
-   Move(const string& rhs) {}
+   //Move(const string& rhs) {}
    bool operator<(const Move& rhs) const { return true; }
    bool operator==(const Move& rhs) const { return true; }
    void read(const string& rhs) {}
