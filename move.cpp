@@ -208,7 +208,7 @@ void Move::setCapture(PieceType cap)
 	capture = cap;
 }
 
-MoveType Move::getMoveType()
+Move::MoveType Move::getMoveType()
 {
 	return moveType;
 }
